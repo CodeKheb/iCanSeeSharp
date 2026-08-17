@@ -1,6 +1,7 @@
 class LinkedList {
     // ? operator to allow null initially
-    public static LinkedList? list = null;
+    public static LinkedList? firstNode = null;
+    public static LinkedList? lastNode = null;
     public LinkedList? next;
     public int value;
 
@@ -17,12 +18,18 @@ class LinkedList {
             Console.Write($"Value at {i}: ");
             int num = int.Parse(Console.ReadLine() ?? "");
             LinkedList n = new LinkedList(num, null);
-            n.next = list;
-            list = n;
+
+            if (lastNode != null) {
+                lastNode.next = n;
+                lastNode = n;
+            } else {
+                firstNode = n;
+                lastNode = n;
+            }
         }
 
 
-        for (LinkedList? ptr = list; ptr != null; ptr = ptr.next) {
+        for (LinkedList? ptr = firstNode; ptr != null; ptr = ptr.next) {
             Console.Write(" " + ptr.value);
         }
     }
