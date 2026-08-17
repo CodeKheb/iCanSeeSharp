@@ -18,3 +18,5 @@ Run
 dotnet run
 ```
 
+## Get Started with [Microsoft C#](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/)
+
