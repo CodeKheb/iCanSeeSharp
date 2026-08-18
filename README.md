@@ -22,9 +22,13 @@ Search
 ``` 
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Server*'
 ```
-Add
+Install from Github
 ```
-Add-WindowsCapability -Online Name OpenSSH.Server~~~~0.0.1.0
+curl.exe -L -o "$env:USERPROFILE\Downloads\openssh.msi" "https://github.com"
+```
+Run the installer silent
+```
+Start-Process msiexec.exe -ArgumentList '/i "$env:USERPROFILE\Downloads\openssh.msi" /quiet /qn /norestart' -Wait
 ```
 Start
 ```
