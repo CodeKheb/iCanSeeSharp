@@ -1,14 +1,10 @@
-class LinkedList {
+class LinkedList(int v, LinkedList? n)
+{
     // ? operator to allow null initially
     public static LinkedList? firstNode = null;
     public static LinkedList? lastNode = null;
-    public LinkedList? next;
-    public int value;
-
-    public LinkedList(int v, LinkedList? n) {
-        value = v;
-        next = n;
-    }
+    public LinkedList? next = n;
+    public int value = v;
 
     static void Main() {
         Console.Write("Amount of nodes: ");
