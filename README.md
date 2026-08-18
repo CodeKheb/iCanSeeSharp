@@ -38,6 +38,17 @@ TCP Port 22 Firewall
 ```
 New-NetFirewallRule -Name "OpenSSH-Inbound" -DisplayName "OpenSSH" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 22
 ```
+# VirtualBox config
+Forward port 2222 to 22 in vm
+```
+# Running
+VBoxManage controlvm "Winbloat" natpf1 "guestssh,tcp,,2222,,22"
+```
+```
+# Not Running
+VBoxManage modifyvm "Winbloat" --natpf1 "guestssh,tcp,,2222,,22"
+
+```
 
 ## Dotnet commands
 Project templates
