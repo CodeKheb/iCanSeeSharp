@@ -5,7 +5,6 @@ class LinkedList(int v, LinkedList? n)
     public static LinkedList? lastNode = null;
     public LinkedList? next = n;
     public int value = v;
-
     static void Main() {
         Console.Write("Amount of nodes: ");
         int numnodes = int.Parse(Console.ReadLine() ?? "");
@@ -35,6 +34,12 @@ class LinkedList(int v, LinkedList? n)
         for (LinkedList? ptr = reversedLinked; ptr != null; ptr = ptr.next) {
             Console.Write(" " + ptr.value);
         }
+
+        LinkedList sortedLinked = Sort(reversedLinked);
+        Console.WriteLine("\nSorted: ");
+        for (LinkedList? ptr = sortedLinked; ptr != null; ptr = ptr.next) {
+            Console.Write(" " + ptr.value);
+        }
     }
 
     static LinkedList Reverse(LinkedList? head) {
@@ -53,5 +58,30 @@ class LinkedList(int v, LinkedList? n)
             }
 
             return prev;
+    }
+
+    static LinkedList Sort(LinkedList? head) {
+        LinkedList? curr = head;
+        LinkedList? sort = new(0, null);
+
+        while (curr != null) {
+            LinkedList? nextNode = curr.next;
+            LinkedList? ptr = sort;
+
+            while (ptr?.next != null && ptr.next.value < curr.value) {
+                ptr = ptr.next;
+            }
+
+            curr.next = ptr?.next;
+            ptr?.next = curr;
+
+            curr = nextNode;
+        }
+
+        if (sort.next == null) {
+            throw new ArgumentException();
+        }
+
+        return sort.next;
     }
 }
