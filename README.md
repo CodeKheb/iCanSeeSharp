@@ -8,6 +8,16 @@ Install roslyn lsp
 dotnet tool install --global roslyn-language-server --prerelease
 ```
 
+# C# larp on Windows (For Compiling in VM)
+Install git via winget
+```
+winget install --id Git.Git -e --source winget
+```
+Install dotnet via winget
+```
+winget install --id Microsoft.DotNet.SDK.10 -e --source winget
+```
+
 ## Dotnet commands
 Project templates
 ```
