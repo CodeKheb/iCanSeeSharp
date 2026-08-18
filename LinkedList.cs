@@ -32,5 +32,26 @@ class LinkedList {
         for (LinkedList? ptr = firstNode; ptr != null; ptr = ptr.next) {
             Console.Write(" " + ptr.value);
         }
+
+        LinkedList reversedLinked = Reverse(firstNode);
+
+        Console.WriteLine("\nReversed: ");
+        for (LinkedList? ptr = reversedLinked; ptr != null; ptr = ptr.next) {
+            Console.Write(" " + ptr.value);
+        }
+    }
+
+    static LinkedList Reverse(LinkedList? head) {
+        LinkedList? ptr = head;
+        LinkedList? prev = null;
+
+            while (ptr != null) {
+                head = ptr.next;
+                ptr.next = prev;
+                prev = ptr;
+                ptr = head;
+            }
+
+            return prev;
     }
 }
