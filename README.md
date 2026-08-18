@@ -17,6 +17,23 @@ Install dotnet via winget
 ```
 winget install --id Microsoft.DotNet.SDK.10 -e --source winget
 ```
+# OpenSSH on powershell
+Search
+``` 
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Server*'
+```
+Add
+```
+Add-WindowsCapability -Online Name OpenSSH.Server~~~~0.0.1.0
+```
+Start
+```
+Start-Service sshd
+```
+On Startup
+```
+Set-Service -Name sshd -StartupType Automatic
+```
 
 ## Dotnet commands
 Project templates
