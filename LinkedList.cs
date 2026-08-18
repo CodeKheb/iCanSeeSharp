@@ -17,7 +17,7 @@ class LinkedList {
         for (int i = 0; i < numnodes; i++) {
             Console.Write($"Value at {i}: ");
             int num = int.Parse(Console.ReadLine() ?? "");
-            LinkedList n = new LinkedList(num, null);
+            LinkedList n = new(num, null);
 
             if (lastNode != null) {
                 lastNode.next = n;
@@ -50,6 +50,10 @@ class LinkedList {
                 ptr.next = prev;
                 prev = ptr;
                 ptr = head;
+            }
+
+            if (prev == null) {
+                throw new ArgumentException();
             }
 
             return prev;
