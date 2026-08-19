@@ -66,7 +66,7 @@ VBoxManage modifyvm "Winbloat" --natpf1 "guestssh,tcp,,2222,,22"
 # Script to ssh
 Copy to binary folder
 ```
-sudo cp deploy-wpf /usr/local/bin/deploy-wpf
+sudo cp deploy-wpf.sh /usr/local/bin/deploy-wpf
 ```
 
 Deploy WPF app on windows 11 through ssh
