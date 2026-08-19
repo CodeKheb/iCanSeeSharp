@@ -63,6 +63,15 @@ VBoxManage controlvm "Winbloat" natpf1 "guestssh,tcp,,2222,,22"
 VBoxManage modifyvm "Winbloat" --natpf1 "guestssh,tcp,,2222,,22"
 
 ```
+# BASH SCRIPT TO SSH
+Deploy WPF app on windows 11 through ssh
+``` bash 
+./deploy-wpf.sh <ssh-name>
+```
+Debug
+``` bash
+./deploy-wpf.sh <ssh-name> debug
+```
 
 ## Dotnet commands
 Project templates
@@ -73,6 +82,7 @@ Run
 ```
 dotnet run
 ```
+
 
 ## Get Started with [Microsoft C#](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/)
 
