@@ -38,6 +38,20 @@ TCP Port 22 Firewall
 ```
 New-NetFirewallRule -Name "OpenSSH-Inbound" -DisplayName "OpenSSH" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 22
 ```
+Add arch to authorized_keys
+```
+New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.ssh; Set-Content -Path $env:USERPROFILE\.ssh\authorized_keys -Value 'Arch_SSH_key'
+```
+Add to administrators_authorized_keys
+```
+Set-Content -Path C:\ProgramData\ssh\administrators_authorized_keys -Value 'Arch_SSH_key'
+```
+Grant permissions
+```
+icacls %USERPROFILE%\.ssh\authorized_keys /inheritance:r /grant %USERNAME%:F /grant SYSTEM:F
+icacls %PROGRAMDATA%\ssh\administrators_authorized_keys /inheritance:r /grant BUILTIN\Administrators:F /grant SYSTEM:F
+```
+
 # VirtualBox config
 Forward port 2222 to 22 in vm
 ```
