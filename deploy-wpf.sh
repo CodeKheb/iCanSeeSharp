@@ -4,7 +4,6 @@
 # Usage: ./deploy-wpf.sh <ssh-host> [release|debug]
 #
 # Set WPF_REMOTE_USER in your .zshrc:
-#   export WPF_REMOTE_USER="Winbloat"
 
 set -e
 
